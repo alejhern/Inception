@@ -52,6 +52,15 @@ services:
     depends_on:
       - mariadb
 
+  static:
+    build: ./requirements/static
+    container_name: static
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - alejhernet
+
 networks:
   alejhernet:
     driver: bridge
