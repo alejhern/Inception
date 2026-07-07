@@ -68,6 +68,17 @@ services:
     restart: always
     networks:
       - alejhernet
+  
+  adminer:
+    build: ./requirements/adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8081:8080"
+    networks:
+      - alejhernet
+    depends_on:
+      - mariadb
 
 networks:
   alejhernet:
