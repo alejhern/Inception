@@ -19,7 +19,7 @@ services:
     env_file:
       - .env
     volumes:
-      - mariadb_data:/var/lib/mariadb
+      - mariadb_data:/var/lib/mysql
     networks:
       - alejhernet
 

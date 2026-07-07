@@ -1,9 +1,8 @@
 NAME = inception
 COMPOSE = docker compose -f ./srcs/docker-compose.yml
 
-DATA_DIR = /home/$(USER)/data
-WP_DIR = $(DATA_DIR)/wordpress
-DB_DIR = $(DATA_DIR)/mariadb
+WP_DIR = ~/data/wordpress
+DB_DIR = ~/data/mariadb
 
 all: prepare
 	$(COMPOSE) up -d --build
@@ -23,8 +22,7 @@ down:
 
 clean:
 	$(COMPOSE) down --volumes --rmi all --remove-orphans
-	rm -rf $(WP_DIR)/*
-	rm -rf $(DB_DIR)/*
+	rm -rf ~/data
 
 re: clean all
 
