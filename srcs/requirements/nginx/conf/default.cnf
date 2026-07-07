@@ -1,6 +1,6 @@
 server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
     server_name alejhern.42.fr;
 
     ssl_certificate /etc/ssl/certs/nginx.crt;
