@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 cd /var/www/html
 
 # Esperar a MariaDB
@@ -12,7 +14,7 @@ do
     sleep 2
 done
 
-# Descargar WordPress solo si no existe
+# Instalar WordPress solo la primera vez
 if [ ! -f wp-config.php ]; then
 
     wp core download --allow-root
@@ -41,6 +43,19 @@ if [ ! -f wp-config.php ]; then
         --allow-root
 
     wp theme install twentysixteen --activate --allow-root
+
+    # Redis
+    wp plugin install redis-cache --activate --allow-root
+
+    wp config set WP_REDIS_HOST "redis" --allow-root
+    wp config set WP_REDIS_PORT 6379 --raw --allow-root
+
+    # Instalar el drop-in si no existe
+    if [ ! -f wp-content/object-cache.php ]; then
+        cp wp-content/plugins/redis-cache/includes/object-cache.php \
+           wp-content/object-cache.php
+    fi
+
 fi
 
 # Permisos

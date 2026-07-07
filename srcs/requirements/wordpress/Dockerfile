@@ -2,12 +2,18 @@ FROM debian:13
 
 RUN apt-get update && \
     apt-get install -y \
-        php-fpm \
-        php-mysql \
+        php8.4 \
+        php8.4-fpm \
+        php8.4-mysql \
+        php8.4-cli \
+        php8.4-curl \
+        php8.4-xml \
+        php8.4-mbstring \
+        php8.4-zip \
+        php8.4-gd \
+        php8.4-redis \
         mariadb-client \
-        curl \
-        ca-certificates && \
-    apt-get clean && \
+        curl && \
     rm -rf /var/lib/apt/lists/*
 
 # Instalar WP-CLI

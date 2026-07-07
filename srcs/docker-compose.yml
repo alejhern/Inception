@@ -51,6 +51,7 @@ services:
       - alejhernet
     depends_on:
       - mariadb
+      - redis
 
   static:
     build: ./requirements/static
@@ -58,6 +59,13 @@ services:
     restart: always
     ports:
       - "8080:80"
+    networks:
+      - alejhernet
+  
+  redis:
+    build: ./requirements/redis
+    container_name: redis
+    restart: always
     networks:
       - alejhernet
 
