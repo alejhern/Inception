@@ -1,0 +1,83 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.hero {
+    background:
+        linear-gradient(135deg,
+            rgba(0, 0, 0, .9),
+            rgba(13, 110, 253, .5)),
+        url("../assets/docker.jpg");
+}
+
+.badge {
+    font-size: 1rem;
+    padding: 12px 18px;
+    margin: 5px;
+}
+
+.card,
+.bonus-card {
+    background: white;
+    transition: .4s;
+}
+
+.card:hover,
+.bonus-card:hover {
+    transform:
+        translateY(-15px) scale(1.03);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, .2);
+}
+
+.bonus-section {
+    background:
+        linear-gradient(120deg,
+            #0f172a,
+            #1e293b);
+    color: white;
+}
+
+.bonus-card {
+    height: 100%;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    color: #111;
+}
+
+.bonus-card i {
+    font-size: 3rem;
+    color: #0d6efd;
+    margin-bottom: 20px;
+}
+
+.timeline {
+    background: #f8f9fa;
+}
+
+.flow {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.flow div {
+    background: #0d6efd;
+    color: white;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: .4s;
+}
+
+.flow div:hover {
+    transform: rotate(10deg) scale(1.1);
+}

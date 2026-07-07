@@ -1,0 +1,348 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inception | Docker Infrastructure Project</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-boxes"></i>
+                Inception
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#architecture">
+                            Architecture
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bonus">
+                            Bonus
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#technology">
+                            Technology
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- HERO -->
+    <section class="hero d-flex align-items-center">
+        <div class="container text-center text-white">
+            <h1 class="display-1 fw-bold 
+               animate__animated animate__fadeInDown">
+                INCEPTION
+            </h1>
+            <h2 class="
+               animate__animated animate__fadeInUp">
+                Containerized Infrastructure Project
+            </h2>
+            <p class="lead mt-4
+               animate__animated 
+               animate__fadeInUp
+               animate__delay-1s">
+                Building a complete web infrastructure using
+                Docker containers, secure networking and
+                system administration principles.
+            </p>
+            <div class="mt-4">
+                <span class="badge bg-primary">
+                    Docker
+                </span>
+                <span class="badge bg-success">
+                    Linux
+                </span>
+                <span class="badge bg-warning text-dark">
+                    Nginx
+                </span>
+                <span class="badge bg-danger">
+                    WordPress
+                </span>
+                <span class="badge bg-info text-dark">
+                    MariaDB
+                </span>
+            </div>
+            <a href="#architecture" class="
+               btn btn-outline-light
+               btn-lg
+               mt-5
+               animate__animated
+               animate__pulse
+               animate__infinite">
+                Explore Architecture
+            </a>
+        </div>
+    </section>
+    <!-- ABOUT -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">
+                        What is Inception?
+                    </h2>
+                    <p>
+                        Inception is a system administration project from
+                        42 School focused on creating a complete
+                        Docker-based infrastructure.
+                    </p>
+                    <p>
+                        The objective is to understand containerization,
+                        network management, persistent storage,
+                        security and service isolation.
+                    </p>
+                    <p>
+                        Every service runs inside its own container,
+                        creating a modular and scalable architecture.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-box">
+                        <h3>
+                            Main Goal
+                        </h3>
+                        <p>
+                            Create a secure production-like environment
+                            using multiple Docker containers working together.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ARCHITECTURE -->
+    <section id="architecture" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">
+                Docker Architecture
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-globe fs-1 text-primary"></i>
+                            <h3 class="mt-3">
+                                Nginx
+                            </h3>
+                            <p>
+                                HTTPS web server and reverse proxy
+                                handling incoming requests.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-wordpress fs-1 text-primary"></i>
+                            <h3 class="mt-3">
+                                WordPress
+                            </h3>
+                            <p>
+                                Dynamic website running with PHP-FPM
+                                connected to the database.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-database fs-1 text-primary"></i>
+                            <h3 class="mt-3">
+                                MariaDB
+                            </h3>
+                            <p>
+                                Database container storing WordPress data
+                                using persistent volumes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FLOW -->
+    <section class="timeline py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">
+                Request Flow
+            </h2>
+            <div class="flow">
+                <div>
+                    01
+                    <br>
+                    User
+                </div>
+                <div>
+                    02
+                    <br>
+                    Nginx
+                    <br>
+                    HTTPS
+                </div>
+                <div>
+                    03
+                    <br>
+                    WordPress
+                    <br>
+                    PHP-FPM
+                </div>
+                <div>
+                    04
+                    <br>
+                    MariaDB
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BONUS -->
+    <section id="bonus" class="bonus-section py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">
+                Bonus Services
+            </h2>
+            <div class="row g-4">
+                <!-- <div class="col-md-4">
+                    <div class="bonus-card">
+                        <i class="bi bi-lightning-charge"></i>
+                        <h4>
+                            Redis Cache
+                        </h4>
+                        <p>
+                            Improves performance by storing frequently
+                            used data.
+                        </p>
+                    </div>
+                </div> -->
+                <div class="col-md-4">
+                    <div class="bonus-card">
+                        <i class="bi bi-cloud-arrow-up"></i>
+                        <h4>
+                            FTP Server
+                        </h4>
+                        <p>
+                            Allows file management through an isolated
+                            container.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bonus-card">
+                        <i class="bi bi-window"></i>
+                        <h4>
+                            Static Website
+                        </h4>
+                        <p>
+                            Independent Nginx service serving
+                            a responsive website.
+                        </p>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4">
+                    <div class="bonus-card">
+                        <i class="bi bi-shield-lock"></i>
+                        <h4>
+                            Security
+                        </h4>
+                        <p>
+                            HTTPS certificates, secrets and isolated
+                            networks.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bonus-card">
+                        <i class="bi bi-speedometer2"></i>
+                        <h4>
+                            Monitoring
+                        </h4>
+                        <p>
+                            Tools to observe service health
+                            and performance.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bonus-card">
+                        <i class="bi bi-diagram-3"></i>
+                        <h4>
+                            Extra Services
+                        </h4>
+                        <p>
+                            The architecture can easily grow with
+                            new containers.
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- TECHNOLOGY -->
+    <section id="technology" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">
+                Technologies
+            </h2>
+            <div class="row text-center g-3">
+                <div class="col-md-3">
+                    <div class="tech">
+                        Docker
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="tech">
+                        Docker Compose
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="tech">
+                        Linux
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="tech">
+                        Nginx
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            Inception Project - 42 School
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
