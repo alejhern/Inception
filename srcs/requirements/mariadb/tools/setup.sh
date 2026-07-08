@@ -32,8 +32,6 @@ if [ ! -f /var/lib/mysql/.initialized ]; then
     FLUSH PRIVILEGES;
 EOF
 
-    mariadb -uroot -p"${MYSQL_ROOT_PASSWORD}" "${UPTIME_KUMA_DATABASE}" < /tmp/db.sql
-
     touch /var/lib/mysql/.initialized
 fi
 
