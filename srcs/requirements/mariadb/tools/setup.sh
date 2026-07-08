@@ -29,10 +29,12 @@ EOF
 # Crear base de datos y usuario para uptime-kuma
 mariadb -u root -p"${MYSQL_ROOT_PASSWORD}" << EOF
 CREATE DATABASE IF NOT EXISTS \`${UPTIME_KUMA_DATABASE}\`;
-CREATE USER IF NOT EXISTS '${UPTIME_KUMA_USER}'@'%' IDENTIFIED BY '${UPTIME_KUMA_PASSWORD}';
-GRANT ALL PRIVILEGES ON \`${UPTIME_KUMA_DATABASE}\`.* TO '${UPTIME_KUMA_USER}'@'%';
+GRANT ALL PRIVILEGES ON \`${UPTIME_KUMA_DATABASE}\`.* TO '${MYSQL_USER}'@'%';
 FLUSH PRIVILEGES;
 EOF
+
+#cargar la base de datos de Uptime Kuma
+mariadb -u root -p"${MYSQL_ROOT_PASSWORD}" "${UPTIME_KUMA_DATABASE}" < /tmp/db.sql
 
 # Parar la instancia temporal
 mariadb-admin -uroot -p"${MYSQL_ROOT_PASSWORD}" shutdown
