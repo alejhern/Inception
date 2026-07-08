@@ -1,29 +1,54 @@
-NAME = inception
-COMPOSE = docker compose -f ./srcs/docker-compose.yml
+NAME        := inception
 
-WP_DIR = ~/data/wordpress
-DB_DIR = ~/data/mariadb
+COMPOSE     := docker compose -f srcs/docker-compose.yml
 
-all: prepare
-	$(COMPOSE) up -d --build
+DATA_DIR    := $(HOME)/data
+WP_DIR      := $(DATA_DIR)/wordpress
+DB_DIR      := $(DATA_DIR)/mariadb
+
+UP_FLAGS    := -d
+DOWN_FLAGS  := --remove-orphans
+FCLEAN_FLAGS:= --volumes --rmi all --remove-orphans
+
+all: prepare up
 
 prepare:
-	mkdir -p $(WP_DIR)
-	mkdir -p $(DB_DIR)
+	@mkdir -p $(WP_DIR) $(DB_DIR)
 
 up:
-	$(COMPOSE) up -d
+	@echo "🚀 Starting $(NAME)..."
+	@$(COMPOSE) up $(UP_FLAGS)
 
 build:
-	$(COMPOSE) build --no-cache
+	@echo "🔨 Building images..."
+	@$(COMPOSE) up $(UP_FLAGS) --build
 
 down:
-	$(COMPOSE) down
+	@echo "🛑 Stopping $(NAME)..."
+	@$(COMPOSE) down
+
+start:
+	@$(COMPOSE) start
+
+stop:
+	@$(COMPOSE) stop
+
+restart: down up
+
+logs:
+	@$(COMPOSE) logs -f
+
+ps:
+	@$(COMPOSE) ps
 
 clean:
-	$(COMPOSE) down --volumes --rmi all --remove-orphans
-	rm -rf ~/data
+	@echo "🧹 Removing containers..."
+	@$(COMPOSE) down $(DOWN_FLAGS)
 
-re: clean all
+fclean:
+	@echo "🗑️ Removing containers, images and volumes..."
+	@$(COMPOSE) down $(FCLEAN_FLAGS)
 
-.PHONY: all prepare up build down clean re
+re: fclean build
+
+.PHONY: all prepare up build down start stop restart logs ps clean fclean re
