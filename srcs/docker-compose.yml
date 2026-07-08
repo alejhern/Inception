@@ -80,6 +80,13 @@ services:
     depends_on:
       - mariadb
 
+  uptime:
+    build: ./requirements/uptime-kuma
+    container_name: uptime
+    restart: always
+    networks:
+      - alejhernet
+
 networks:
   alejhernet:
     driver: bridge
