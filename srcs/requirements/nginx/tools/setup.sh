@@ -2,6 +2,11 @@
 
 set -e
 
+while [ ! -f /var/www/html/index.php ]; do
+    echo "Waiting for WordPress files..."
+    sleep 1
+done
+
 mkdir -p /etc/ssl/private
 mkdir -p /etc/ssl/certs
 

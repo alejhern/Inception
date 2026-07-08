@@ -84,6 +84,12 @@ services:
     build: ./requirements/uptime-kuma
     container_name: uptime
     restart: always
+    env_file:
+      - .env
+    ports:
+      - "3001:3001"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     networks:
       - alejhernet
 

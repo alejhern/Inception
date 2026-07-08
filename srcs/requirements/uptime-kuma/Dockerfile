@@ -1,18 +1,24 @@
 FROM debian:13
 
 RUN apt-get update && \
-    apt-get install -y curl ca-certificates nodejs npm git && \
+    apt-get install -y \
+        git \
+        curl \
+        ca-certificates \
+        nodejs \
+        npm && \
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/louislam/uptime-kuma.git /opt/uptime-kuma
+WORKDIR /opt
+
+RUN git clone --depth=1 https://github.com/louislam/uptime-kuma.git
 
 WORKDIR /opt/uptime-kuma
 
 RUN npm install
 
-COPY ./tools/setup.sh /setup.sh
-RUN chmod +x /setup.sh
+RUN npm run build
 
 EXPOSE 3001
 
-ENTRYPOINT ["/setup.sh"]
+CMD ["npm", "start"]
